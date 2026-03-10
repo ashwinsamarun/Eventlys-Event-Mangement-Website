@@ -1,0 +1,851 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: all 0.35s ease;
+}
+
+
+.nav-logo {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff !important; /* Forces white */
+  text-decoration: none !important; /* FIXES THE UNDERLINE */
+  letter-spacing: 1px;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Tightly spaced */
+  margin-left: auto; /* Pushes everything securely to the right */
+}
+
+.nav-links a {
+  text-decoration: none !important; /* FIXES LINK UNDERLINE */
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* --- High-End Navbar Buttons --- */
+
+/* src/styles/Navbar.css */
+
+.btn-login-outline, 
+.btn-register-fill {
+  /* Core alignment properties */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px; /* Fixed height for both ensures perfect baseline */
+  min-width: 110px; /* Ensures buttons have consistent presence */
+  
+  /* Text styling */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  
+  /* Animation */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border-radius: 50px;
+  box-sizing: border-box; /* Crucial: includes border in height calc */
+}
+
+.btn-login-outline {
+  border: 2px solid var(--primary-gold);
+  color: var(--primary-gold) !important;
+  background: transparent;
+  margin-right: 12px; /* Consistent gap between buttons */
+  padding: 0 22px;
+}
+
+.btn-login-outline:hover {
+  background: var(--primary-gold);
+  color: #000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 203, 0, 0.3);
+}
+
+.btn-register-fill {
+  background: var(--primary-gold);
+  border: 2px solid var(--primary-gold);
+  color: #000 !important;
+  padding: 0 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-register-fill:hover {
+  background: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(252, 203, 0, 0.4);
+}
+
+/* src/styles/Navbar.css */
+
+.notification-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Space between bell and the text links */
+  z-index: 10; /* Ensures it stays above background elements */
+}
+
+.nav-icon {
+  font-size: 1rem; /* Smaller size to stay professional */
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.9;
+}
+
+.nav-icon:hover {
+  color: #fccb00;
+  transform: scale(1.1);
+}
+
+.notification-badge-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 6px; /* Tiny, elegant dot */
+  height: 6px;
+  background: #fccb00;
+  border-radius: 50%;
+  border: 1px solid #1a1a1a;
+  pointer-events: none; /* Allows clicks to pass through to the icon */
+}
+
+@keyframes pulse-gold {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 203, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(252, 203, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 203, 0, 0); }
+}
+
+/* Dropdown */
+.notification-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  z-index: 1000;
+  padding: 15px 0;
+  color: #1a1a1a;
+}
+
+.notif-header {
+  padding: 0 20px 10px;
+  font-weight: 800;
+  border-bottom: 1px solid #eee;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.notif-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f9f9f9;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.notif-item:hover { background: #fffcf0; }
+
+.notif-item p { font-size: 0.85rem; margin: 0; line-height: 1.4; }
+.notif-item span { font-size: 0.7rem; color: #aaa; margin-top: 5px; display: block; }
+
+.notification-badge-dot {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  width: 7px; /* Smaller dot */
+  height: 7px;
+  background: #fccb00;
+  border-radius: 50%;
+  border: 1.5px solid #1a1a1a;
+  animation: pulse-gold 2s infinite;
+}
+
+.notif-footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #666;
+}
+
+.notification-wrapper {
+  position: relative;
+  margin-right: 25px; /* Space between bell and Dashboard link */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  font-size: 1.1rem; /* Smaller, more professional size */
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.8; /* Subtle look until hovered */
+}
+
+@keyframes shake-bell {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-12deg); }
+  75% { transform: rotate(8deg); }
+  100% { transform: rotate(0); }
+}
+
+.nav-icon.has-unread {
+  color: #fccb00;
+  opacity: 1;
+  animation: shake-bell 0.6s cubic-bezier(.36,.07,.19,.97) both infinite;
+  animation-delay: 2s; /* Shakes every 2 seconds roughly via repeat with some delay logic if set, but we will just let it constantly ring gently */
+}
+
+/* Delaying the animation so it only shakes periodically rather than nonstop */
+.nav-icon.has-unread i {
+  display: inline-block;
+  animation: shake-bell 2.5s infinite;
+  transform-origin: top center;
+}
+
+.nav-icon:hover { 
+  color: #fccb00; 
+  opacity: 1;
+}
+
+.auth-btns {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; /* Keeps distance from the bell */
+}
+
+/* src/styles/Navbar.css */
+
+
+/* The professional fade/glass effect when scrolling */
+.main-nav.nav-scrolled {
+  padding: 15px 8%;
+  background: rgba(26, 26, 26, 0.85); /* Slightly transparent */
+  backdrop-filter: blur(10px); /* Glassmorphism blur */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* App Loading Screen */
+.app-loader {
+  height: 100vh;
+  width: 100vw;
+  background: #0a0a0a; /* Deepest black for contrast */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* The Unique Spinner: A thin gold ring with a glow */
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(252, 203, 0, 0.05);
+  border-top: 2px solid #fccb00;
+  border-right: 2px solid #fccb00;
+  border-radius: 50%;
+  animation: premium-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  filter: drop-shadow(0 0 8px rgba(252, 203, 0, 0.4));
+  margin-bottom: 25px;
+}
+
+/* The Logo Text inside the Loader */
+.app-loader h2 {
+  color: #ffffff;
+  font-family: 'Cinzel', serif; /* Matching your theme */
+  letter-spacing: 8px;
+  margin: 0;
+  font-weight: 400;
+  animation: text-pulse 2s ease-in-out infinite;
+}
+
+.app-loader h2 span {
+  color: #fccb00;
+  text-shadow: 0 0 15px rgba(252, 203, 0, 0.6);
+}
+
+/* Cool Animations */
+@keyframes premium-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes text-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* Fade out effect for when loading ends */
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+/* --- PREMIUM LOGOUT OVERLAY --- */
+.logout-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.95); /* Deep dark background */
+  z-index: 9999; /* Above everything */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fccb00;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  animation: fadeIn 0.4s ease;
+}
+
+.loader-gold {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(252, 203, 0, 0.1);
+  border-top-color: #fccb00;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 25px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.brand-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1a1a1a; /* Revert to #ffffff if your navbar is dark */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Spacing between logo and text */
+}
+
+.gold-superscript {
+  color: #fccb00; /* Your signature gold color */
+  font-weight: 800;
+  margin-left: 1px; /* Prevents overlap with the 'Y' */
+  font-size: 0.8rem; /* Adjusts the size of the $ relative to the text */
+}
+
+/* Updated logo style to ensure vertical alignment */
+.navbar-logo-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #fccb00;
+  overflow: hidden;
+  display: block;
+}
+
+.theme-toggle-btn {
+  background: var(--border-subtle);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent-gold);
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.35s ease;
+}
+
+.main-nav.scrolled {
+  background: rgba(10,10,10,0.65);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.theme-light .main-nav {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.theme-light .nav-item,
+.theme-light .nav-links a,
+.theme-light .nav-logo {
+  color: #111 !important;
+}
+
+/* ===============================
+   LIGHT MODE NAVBAR FIX
+   =============================== */
+
+.theme-light .main-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.theme-light .nav-item,
+.theme-light .nav-links a,
+.theme-light .brand-text {
+  color: #111 !important;
+}
+
+.theme-light .nav-item:hover,
+.theme-light .nav-links a:hover {
+  color: var(--primary-gold) !important;
+}
+
+/* ===============================
+   LIGHT MODE BUTTON FIX
+   =============================== */
+
+.theme-light .btn-login-outline {
+  border-color: #111;
+  color: #111 !important;
+}
+
+.theme-light .btn-login-outline:hover {
+  background: #111;
+  color: #fff !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.theme-light .btn-register-fill {
+  background: var(--primary-gold);
+  border-color: var(--primary-gold);
+  color: #000 !important;
+}
+
+.theme-light .btn-register-fill:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff !important;
+}
+
+/* ===============================
+   NAVBAR THEME SWITCH (FIX)
+   =============================== */
+
+.theme-light .main-nav {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  backdrop-filter: blur(12px);
+}
+
+.theme-dark .main-nav {
+  background: rgba(12, 12, 14, 0.92) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(12px);
+}
+
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  margin-right: 10px;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.main-nav {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+html[data-theme="light"] .main-nav {
+  background: color-mix(in srgb, #fff 92%, transparent);
+}
+
+.nav-item,
+.nav-links a,
+.nav-logo,
+.brand-text {
+  color: var(--text) !important;
+}
+
+.nav-item:hover,
+.nav-links a:hover {
+  color: var(--primary-gold) !important;
+}
+
+.btn-login-outline {
+  border: 2px solid var(--primary-gold);
+  color: var(--primary-gold);
+  background: transparent;
+}
+
+.btn-login-outline:hover {
+  background: var(--primary-gold);
+  color: #000;
+}
+
+.btn-register-fill {
+  background: var(--primary-gold);
+  border: 2px solid var(--primary-gold);
+  color: #000;
+}
+
+.btn-register-fill:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.main-nav{
+  background: color-mix(in srgb, var(--surface) 92%, transparent) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: blur(12px);
+}
+
+.nav-item,
+.nav-links a,
+.nav-logo,
+.brand-text{
+  color: var(--text) !important;
+}
+
+.nav-item:hover,
+.nav-links a:hover{
+  color: var(--primary-gold) !important;
+  border-bottom-color: var(--primary-gold) !important;
+}
+
+/* Buttons match in both themes */
+.btn-login-outline{
+  border-color: var(--primary-gold);
+  color: var(--primary-gold) !important;
+}
+.btn-login-outline:hover{
+  background: var(--primary-gold);
+  color: #000 !important;
+}
+
+.btn-register-fill{
+  background: var(--primary-gold);
+  border-color: var(--primary-gold);
+  color: #000 !important;
+}
+.btn-register-fill:hover{
+  background: #fff;
+  border-color: #fff;
+  color: #000 !important;
+}
+
+/* Theme toggle button uses tokens */
+.theme-toggle-btn{
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ===============================
+   LIGHT MODE — Notification Bell
+   =============================== */
+
+.theme-light .nav-icon {
+  color: #111; /* black bell in light mode */
+  opacity: 0.9;
+}
+
+.theme-light .nav-icon:hover {
+  color: var(--primary-gold); /* gold on hover */
+}
+
+/* ---------- Mobile Nav ---------- */
+.nav-hamburger {
+  display: none;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  color: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  height: 42px;
+  width: 44px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  z-index: 1200;
+}
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(88vw, 360px);
+  height: 100vh;
+  background: color-mix(in srgb, var(--surface) 92%, #000);
+  border-left: 1px solid var(--border);
+  z-index: 1300;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: drawerIn 0.22s ease-out;
+}
+
+@keyframes drawerIn {
+  from { transform: translateX(16px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-brand {
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.drawer-close {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  height: 42px;
+  width: 44px;
+  cursor: pointer;
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-link {
+  text-align: left;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  color: rgba(255,255,255,0.9);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+}
+
+.drawer-actions {
+  margin-top: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.drawer-primary,
+.drawer-secondary {
+  width: 100%;
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.drawer-primary {
+  border: 2px solid var(--primary-gold);
+  background: var(--primary-gold);
+  color: #000;
+}
+
+.drawer-secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+}
+
+.drawer-theme {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Hide desktop links on small screens */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: inline-flex; align-items: center; justify-content: center; }
+}
+
+/* --- Profile Dropdown (Avatar) --- */
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 15px; /* Separation from Bell or Buttons */
+}
+
+.profile-avatar-trigger {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-gold);
+  background: var(--surface-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  animation: pulse-gold 3s infinite;
+}
+
+.profile-avatar-trigger:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 25px rgba(252, 203, 0, 0.5);
+  animation-play-state: paused;
+}
+
+.navbar-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar-avatar-placeholder {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.profile-dropdown-menu {
+  position: absolute;
+  top: 55px; /* Directly below the avatar */
+  right: 0;
+  width: 220px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  transform-origin: top right;
+}
+
+.profile-dropdown-item {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.25s ease;
+  background: transparent;
+}
+
+.profile-dropdown-item i {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.profile-dropdown-item:hover {
+  background: var(--surface-2);
+  color: var(--primary-gold);
+  padding-left: 25px; /* Micro animation left-slide */
+}
+
+.profile-dropdown-item:hover i {
+  transform: scale(1.15);
+}
+

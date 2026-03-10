@@ -1,0 +1,122 @@
+/* src/styles/FloatingUtilities.css */
+.floating-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-btn {
+  width: 50px;
+  height: 50px;
+  background: #1a1a1a;
+  color: #fccb00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(252, 203, 0, 0.2);
+}
+
+.floating-btn:hover {
+  transform: translateY(-5px);
+  background: #fccb00;
+  color: #1a1a1a;
+}
+
+.scroll-btn {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.scroll-btn.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.floating-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  background: #fccb00;
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+  animation: pulse-gold 2s infinite;
+}
+
+.floating-notif-dropdown {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 300px;
+  background: white;
+  color: #333;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* In FloatingUtilities.css */
+.scroll-btn {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(5px);
+  border: 1px solid #fccb00;
+  color: #fccb00;
+  transition: all 0.4s ease;
+}
+
+.scroll-btn:hover {
+  background: #fccb00;
+  color: #1a1a1a;
+  box-shadow: 0 0 20px rgba(252, 203, 0, 0.4);
+}
+
+/* --- FLOATING UTILITIES VISIBILITY FIX --- */
+
+/* Ensure the main container of the floating buttons is visible */
+.floating-btn, .utility-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(252, 203, 0, 0.3); /* Subtle gold border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Force the icons inside to be visible and colored gold/white */
+.floating-btn i, .utility-item i {
+  color: #fccb00 !important; /* Premium Gold */
+  font-size: 1.2rem !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+}
+
+/* Hover state: Swap colors for a high-end feel */
+.floating-btn:hover i, .utility-item:hover i {
+  color: #000 !important;
+}
+
+.floating-btn:hover {
+  background-color: #fccb00 !important;
+  transform: scale(1.1);
+}

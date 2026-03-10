@@ -1,0 +1,126 @@
+.global-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+  /* background removed from wrapper and pushed to curtains */
+}
+
+/* --- THE EVENT CURTAINS --- */
+.event-curtain {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 5;
+  box-shadow: 0 0 60px rgba(0,0,0,0.3) inset; /* Subtle theater velvet depth */
+}
+
+.event-curtain.left {
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-curtain.right {
+  right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- LOADING CONTENT --- */
+.neoleaf-loader-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20; /* Sits completely above the curtains */
+}
+
+.neoleaf-text-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.neoleaf-text {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.neoleaf-superscript {
+  font-family: 'Inter', sans-serif;
+  vertical-align: super;
+  font-size: 0.5em;
+  margin-left: 5px;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.filled-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke-width: 0px; 
+  z-index: 2;
+}
+
+/* Multi-layered erratic liquid physics */
+.liquid-wave-fill {
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  background-repeat: repeat-x, repeat-x, repeat-x;
+  background-size: 800px 200%, 600px 200%, 1200px 200%; 
+  animation: erraticFluidFlow 4s linear infinite;
+}
+
+@keyframes erraticFluidFlow {
+  0% { 
+    background-position-x: 0px, 0px, 0px; 
+  }
+  100% { 
+    /* The three layers move at vastly different speeds and directions for extreme chaos */
+    background-position-x: -800px, 600px, -1200px; 
+  }
+}
+
+.neoleaf-counter {
+  position: absolute;
+  bottom: 0px;
+  right: -80px; 
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
+.percent-sign {
+  font-size: 0.6em;
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+@media (max-width: 768px) {
+  .neoleaf-counter {
+    right: 0;
+    bottom: -35px;
+  }
+}

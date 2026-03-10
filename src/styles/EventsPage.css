@@ -1,0 +1,526 @@
+/* src/styles/EventsPage.css */
+
+.events-page-container {
+  padding: 120px 8% 60px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.events-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.events-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.events-hero h1 span {
+  color: #fccb00; /* Gold Accent */
+}
+
+/* Category Pills */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.category-pills {
+  display: flex;
+  gap: 15px;
+  background: var(--surface);
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.pill {
+  padding: 10px 25px;
+  border: none;
+  background: transparent;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.pill.active {
+  background: var(--surface-2);
+  color: #fccb00;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+}
+
+/* Event Grid */
+.events-grid-master {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.master-event-card {
+  background: var(--surface);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: 0.4s;
+}
+
+.master-event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.card-img-wrapper {
+  position: relative;
+  height: 200px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-category-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #fccb00;
+  color: #1a1a1a;
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.card-content-master {
+  padding: 25px;
+}
+
+.card-content-master h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.btn-details-master {
+  background: transparent;
+  border: 2px solid #1a1a1a;
+  padding: 8px 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-details-master:hover {
+  background: #1a1a1a;
+  color: #fccb00;
+}
+
+/* src/styles/EventsPage.css */
+
+.master-search-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 30px auto 0;
+}
+
+.master-search-input {
+  width: 100%;
+  padding: 15px 20px 15px 45px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.master-search-input:focus {
+  border-color: #fccb00;
+  box-shadow: 0 5px 20px rgba(252, 203, 0, 0.2);
+}
+
+.search-icon-master {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+/* Load More Button */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.btn-load-more {
+  background: #1a1a1a;
+  color: #fccb00;
+  border: none;
+  padding: 15px 40px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn-load-more:hover {
+  background: #fccb00;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(252, 203, 0, 0.3);
+}
+
+/* Shimmer Animation */
+.shimmer-card {
+  background: #fff;
+  height: 380px;
+  overflow: hidden;
+}
+
+.shimmer-img, .shimmer-text {
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.shimmer-img { height: 200px; margin-bottom: 20px; }
+.shimmer-text { height: 20px; margin: 10px 25px; border-radius: 4px; }
+.shimmer-text.short { width: 40%; }
+.shimmer-text.long { width: 80%; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.location-select {
+  background: var(--surface-2);
+  color: #fccb00;
+  border: 1px solid #fccb00;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  outline: none;
+}
+
+.card-location-master {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 5px 0;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 0;
+  color: white;
+}
+
+.no-results h3 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 20px;
+}
+
+/* Ensure price is bold gold */
+.card-price-master {
+  color: var(--text);
+  font-weight: 800;
+  font-size: 1.2rem;         /* Slightly larger for visibility */
+  font-family: 'Inter', sans-serif;
+}
+
+/* REFINED FILTERS */
+.controls-bar {
+  display: flex;
+  justify-content: center;
+  margin: -30px auto 50px;
+  position: relative;
+  z-index: 10;
+  padding: 0 5%;
+}
+
+.filter-section {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 100px; /* Fully Rounded Pill Shape */
+  border: 1px solid rgba(252, 203, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.category-group {
+  display: flex;
+  gap: 8px;
+}
+
+.pill-refined {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pill-refined.active {
+  background: var(--surface-2);
+  color: #fccb00;
+  border: 1px solid var(--border);
+}
+
+.location-select-refined {
+  background: var(--surface-2);
+  color: #fccb00;
+  border: 1px solid rgba(252, 203, 0, 0.5);
+  padding: 8px 18px;
+  border-radius: 50px; /* Rounded Select */
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+.location-select-refined:hover {
+  border-color: #fccb00;
+}
+
+/* CARD TWEAKS */
+.card-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin: 10px 0 15px;
+}
+
+.btn-details-master {
+  background: #fccb00;
+  color: #0e0e0e;
+  border: 1px solid #fccb00;
+  padding: 8px 20px;
+  border-radius: 50px; /* Consistent Rounding */
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-details-master:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+  }
+  .category-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.card-footer-master {
+  display: flex;            /* Enable Flexbox */
+  justify-content: space-between; /* Pushes items to opposite ends */
+  align-items: center;      /* Vertically aligns price and button */
+  margin-top: 15px;         /* Creates breathing room above the footer */
+  padding-top: 15px;
+  border-top: 1px solid rgba(252, 203, 0, 0.1); /* Subtle divider line */
+}
+
+/* ===============================
+   EventsPage Theme Overrides
+   =============================== */
+.events-page,
+.events-page-wrapper{
+  background: var(--bg);
+  color: var(--text);
+}
+
+.events-page h1,
+.events-page h2,
+.events-page h3{
+  color: var(--text);
+}
+
+.events-page .event-card,
+.events-page .event-tile,
+.events-page .event-details-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.events-page p,
+.events-page span,
+.events-page small{
+  color: var(--muted);
+}
+
+.events-page input,
+.events-page select{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ===============================
+   SKELETON CARD (Premium)
+   =============================== */
+
+.skeleton-card {
+  height: 360px; /* same height as event card */
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    var(--surface) 25%,
+    var(--border) 37%,
+    var(--surface) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+/* Dark / Light aware */
+.theme-dark .skeleton-card {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 25%,
+    #2a2a2a 37%,
+    #1a1a1a 63%
+  );
+}
+
+.theme-light .skeleton-card {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 37%,
+    #f0f0f0 63%
+  );
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* --- Category pills scroll row --- */
+.category-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.category-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 20px;
+}
+
+.category-scroll .pill-refined {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  white-space: nowrap;
+}
+
+/* --- "More" dropdown styled to match your premium selects --- */
+.category-more-select {
+  flex: 0 0 auto;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #0c0c0c;
+  color: #fccb00;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Small screens: make the whole control bar wrap nicely */
+@media (max-width: 900px) {
+  .controls-bar .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
+
+.sold-out-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:#111;
+  color:#fccb00;
+  font-weight:900;
+  font-size:0.75rem;
+  padding:6px 10px;
+  border-radius:999px;
+  letter-spacing:1px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+.master-event-card .card-img-wrapper{
+  position:relative;
+}
+.btn-details-master:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
+  transform:none !important;
+}

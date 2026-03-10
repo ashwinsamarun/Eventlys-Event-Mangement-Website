@@ -1,0 +1,123 @@
+.footer-main{
+  background: var(--bg-solid);
+  padding: 80px 8% 40px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.footer-section h3{
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.footer-section h3 span{ color: var(--primary-gold); }
+
+.footer-description{
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+/* --- HEADINGS & LINKS --- */
+.footer-heading{
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: var(--primary-gold);
+}
+
+.footer-links{ list-style:none; padding:0; }
+
+.footer-links li{ margin-bottom: 12px; }
+
+.footer-links a{
+  text-decoration:none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+.footer-links a:hover{
+  color: var(--primary-gold);
+  padding-left: 8px;
+}
+
+/* --- CONTACT DETAILS --- */
+.contact-details{ margin-bottom: 25px; }
+
+.contact-details p{
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display:flex;
+  align-items:center;
+  gap: 15px;
+}
+
+.contact-details i{ color: var(--primary-gold); }
+
+/* --- SOCIALS --- */
+.footer-socials{ display:flex; gap: 15px; }
+
+.social-icon-link{
+  text-decoration:none;
+  color: var(--primary-gold);
+  width: 42px;
+  height: 42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon-link:hover{
+  background: var(--primary-gold);
+  color: #111;
+  border-color: var(--primary-gold);
+  transform: translateY(-8px);
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom{
+  border-top: 1px solid var(--border);
+  padding-top: 30px;
+  text-align:center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ===== Footer brand to match navbar EVENTLY$ ===== */
+.footer-logo {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text) !important; /* Adapts to light/dark mode */
+  text-decoration: none !important; /* FIXES THE UNDERLINE */
+  letter-spacing: 1px;
+}
+
+.footer-logo span { color: var(--gold); }
+
+.gold-superscript {
+  color: #fccb00; /* Your signature gold color */
+  font-weight: 800;
+  margin-left: 1px; /* Prevents overlap with the 'Y' */
+  font-size: 0.8rem; /* Adjusts the size of the $ relative to the text */
+}
