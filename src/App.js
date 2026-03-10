@@ -150,6 +150,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
   const [revealComplete, setRevealComplete] = useState(false);
 
   // ✅ EVENTS: now backend-driven (no hardcoded array)

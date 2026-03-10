@@ -21,6 +21,7 @@ const Settings = () => {
 
   const [avatarUrl, setAvatarUrl] = useState(null);
   const fileInputRef = useRef(null);
+  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
 
   useEffect(() => {
