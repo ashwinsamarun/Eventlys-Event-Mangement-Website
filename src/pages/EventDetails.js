@@ -84,8 +84,11 @@ const EventDetails = ({ isLoggedIn }) => {
 
   const soldOut = isSoldOut(resolved);
 
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isEnded = resolved.date && resolved.date < todayStr;
+
   const similar = allEvents
-    .filter((e) => e.category === resolved.category && String(e.id) !== String(resolved.id))
+    .filter((e) => e.category === resolved.category && String(e.id) !== String(resolved.id) && (!e.date || e.date >= todayStr))
     .slice(0, 3);
 
   const checkoutPayload = {
@@ -306,13 +309,31 @@ END:VCALENDAR`;
               </div>
             </div>
 
-            <button 
-              className="btn-premium-action btn-checkout-glow" 
-              onClick={handleCheckout} 
-              disabled={soldOut}
-            >
-              {soldOut ? "Fully Booked" : "Secure Your Ticket"}
-            </button>
+            {isEnded ? (
+              <div 
+                className="btn-premium-action" 
+                style={{ 
+                  background: "rgba(255, 255, 255, 0.05)", 
+                  color: "#aaa", 
+                  cursor: "not-allowed", 
+                  display: "flex", 
+                  alignItems: "center", 
+                  justifyContent: "center", 
+                  gap: "8px",
+                  border: "1px solid rgba(255, 255, 255, 0.1)"
+                }}
+              >
+                <i className="fas fa-calendar-times"></i> Event Has Ended
+              </div>
+            ) : (
+              <button 
+                className="btn-premium-action btn-checkout-glow" 
+                onClick={handleCheckout} 
+                disabled={soldOut}
+              >
+                {soldOut ? "Fully Booked" : "Secure Your Ticket"}
+              </button>
+            )}
 
             <div className="action-buttons-grid">
               <button className="btn-secondary-action" onClick={viewNativeCalendar} type="button">
